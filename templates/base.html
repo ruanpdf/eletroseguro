@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EletroSeguro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-primary">
+        <div class="container-fluid gap-3">
+          <form class="d-flex flex-grow-1" role="search">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar na EletroSeguro..." aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+          <a href="#" class="navbar-brand text-white">Carrinho</a>
+        </div>
+      </nav>
+      <div class="bg-secondary">
+        <ul class="list-unstyled d-flex justify-content-between align-items-center px-4 py-2">
+          <li><a href="#" class="text-white text-decoration-none fw-medium">Todos</a></li>
+          <li><a href="#" class="text-white text-decoration-none fw-medium">Novidades</a></li>
+          <li><a href="#" class="text-white text-decoration-none fw-medium">Ofertas</a></li>
+          <li><a href="#" class="text-white text-decoration-none fw-medium">Eletrônicos</a></li>
+          <li><a href="#" class="text-white text-decoration-none fw-medium">Ideias de Presente</a></li>
+          <li><a href="#" class="text-white text-decoration-none fw-medium">Mais vendidos</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="container">
+      {% block conteudo %}
+      {% endblock conteudo %}
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

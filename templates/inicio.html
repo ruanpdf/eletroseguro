@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="row">
+  <div class="col-md-4 d-flex flex-column">
+    <img src="{{ url_for('static', filename='img/eletroday.png')}}" alt="Eletroday" class="w-100 flex-grow-1">
+    <p class="text-center bg-primary text-white p-2 rounded-2 mt-1">Eletroday</p>
+  </div>
+  <div class="col-md-4 d-flex flex-column">
+    <img src="{{ url_for('static', filename='img/ofertas_do_dia.png')}}" alt="Ofertas do dia" class="w-100 flex-grow-1">
+    <p class="text-center bg-primary text-white p-2 rounded-2 mt-1">Ofertas do dia</p>
+  </div>
+  <div class="col-md-4 d-flex flex-column">
+    <img src="{{ url_for('static', filename='img/use_o_cupom.png')}}" alt="Use o cupom" class="w-100 flex-grow-1">
+    <p class="text-center bg-primary text-white p-2 rounded-2 mt-1">Use o cupom</p>
+  </div>
+</div>
+<h1 class="text-center">Tem tudo no EletroSeguro :)</h1>
+<div class="row gy-3">
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-phone-fill icone"></i>
+      <h3 class="text-center">Celulares</h3>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-rewind-fill icone"></i>
+      <h3 class="text-center">TVs</h3>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-tools icone"></i>
+      <h3 class="text-center">Ferramentas</h3>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-mouse-fill icone"></i>
+      <h3 class="text-center">Eletro</h3>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-fire icone"></i>
+      <h3 class="text-center">Utilidades</h3>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <img src="{{ url_for('static', filename='img/icone_esporte.png')}}"  class="icone">
+      <h3 class="text-center">Esportes</h3>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-building-fill icone"></i>
+      <h3 class="text-center">Casas e construção</h3>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-taxi-front-fill icone"></i>
+      <h3 class="text-center">Automotivo</h3>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock conteudo %}
