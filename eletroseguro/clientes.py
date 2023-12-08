@@ -1,9 +1,10 @@
+import psycopg2.extras
 from .banco import get_conexao
 
 
-def registrar_cliente(nome, senha, email, data_nascimento, telefone):
+def cadastrar_cliente(nome, senha, email, data_nascimento, telefone):
     conn = get_conexao()
-    cursor = conn.cursor()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cursor.execute(
         """
         INSERT INTO clientes (nome, senha, email, data_nascimento, telefone)
@@ -18,7 +19,7 @@ def registrar_cliente(nome, senha, email, data_nascimento, telefone):
 
 def verificar_cliente(email, senha):
     conn = get_conexao()
-    cursor = conn.cursor()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cursor.execute(
         """
         SELECT * FROM clientes WHERE email = %s AND senha = %s

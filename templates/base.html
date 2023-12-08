@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <header>
       <nav class="navbar bg-primary">
         <div class="container-fluid gap-3">
+          <a href="{{ url_for('pagina_inicial') }}" class="navbar-brand text-white fw-bold">EletroSeguro</a>
           <form class="d-flex flex-grow-1" role="search">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar na EletroSeguro..." aria-label="Search">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar na EletroSeguro..." aria-label="Search" name="nome">
             <button class="btn btn-outline-light" type="submit">
               <i class="bi bi-search"></i>
             </button>
@@ -21,7 +22,7 @@
         </div>
       </nav>
       <div class="bg-secondary">
-        <ul class="list-unstyled d-flex justify-content-between align-items-center px-4 py-2">
+        <ul class="list-unstyled d-flex justify-content-between align-items-center px-4 py-2 flex-column flex-md-row">
           <li><a href="#" class="text-white text-decoration-none fw-medium">Todos</a></li>
           <li><a href="#" class="text-white text-decoration-none fw-medium">Novidades</a></li>
           <li><a href="#" class="text-white text-decoration-none fw-medium">Ofertas</a></li>
@@ -31,7 +32,7 @@
         </ul>
       </div>
     </header>
-    <main class="container">
+    <main class="container flex-grow-1 d-flex flex-column justify-content-center">
       {% block conteudo %}
       {% endblock conteudo %}
     </main>

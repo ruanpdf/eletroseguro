@@ -1,4 +1,5 @@
 import psycopg2
+import psycopg2.extras
 
 
 def iniciar_banco():
@@ -6,7 +7,7 @@ def iniciar_banco():
         database="eletroseguro", user="postgres", password="root", host="localhost"
     )
 
-    cursor = conn.cursor()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
     cursor.execute(
         """
@@ -48,38 +49,38 @@ def get_conexao():
 
 def inserir_produtos():
     conn = get_conexao()
-    cursor = conn.cursor()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
     cursor.execute("SELECT COUNT(*) FROM produtos")
-    total_de_produtos = cursor.fetchone()[0]
+    total_de_produtos = cursor.fetchone()["count"]
     if total_de_produtos > 0:
         return
 
     cursor.execute(
         """
         INSERT INTO produtos (nome, preco, avaliacao, total_vendidos, imagem, descricao)
-        VALUES ('Smart TV LED 50" UHD 4K Samsung 50TU8000 Crystal UHD, Borda Infinita, Alexa Built In, Visual Livre de Cabos, Modo Ambiente Foto, Controle Único - 2020', 2699.99, 4.5, 100, './produtos/tv.jpg', 'Smart TV LED 50" UHD 4K Samsung 50TU8000 Crystal UHD, Borda Infinita, Alexa Built In, Visual Livre de Cabos, Modo Ambiente Foto, Controle Único - 2020')
+        VALUES ('Smart TV LED 50" UHD 4K Samsung 50TU8000 Crystal UHD, Borda Infinita, Alexa Built In, Visual Livre de Cabos, Modo Ambiente Foto, Controle Único - 2020', 2699.99, 4.5, 100, 'produtos/tv.jpg', 'Smart TV LED 50" UHD 4K Samsung 50TU8000 Crystal UHD, Borda Infinita, Alexa Built In, Visual Livre de Cabos, Modo Ambiente Foto, Controle Único - 2020')
         """
     )
 
     cursor.execute(
         """
         INSERT INTO produtos (nome, preco, avaliacao, total_vendidos, imagem, descricao)
-        VALUES ('Smartphone Samsung Galaxy A71 128GB Azul 6GB RAM', 1999.99, 4.5, 100, './produtos/celular.jpg', 'Smartphone Samsung Galaxy A71 128GB Azul 6GB RAM')
+        VALUES ('Smartphone Samsung Galaxy A71 128GB Azul 6GB RAM', 1999.99, 4.5, 100, 'produtos/celular.jpg', 'Smartphone Samsung Galaxy A71 128GB Azul 6GB RAM')
         """
     )
 
     cursor.execute(
         """
         INSERT INTO produtos (nome, preco, avaliacao, total_vendidos, imagem, descricao)
-        VALUES ('Notebook Acer Aspire 3 A315-42G-R2LK AMD Ryzen 7 12GB RAM 1TB HD 15,6" Windows 10', 3999.99, 4.5, 100, './produtos/notebook.jpg', 'Notebook Acer Aspire 3 A315-42G-R2LK AMD Ryzen 7 12GB RAM 1TB HD 15,6" Windows 10')
+        VALUES ('Notebook Acer Aspire 3 A315-42G-R2LK AMD Ryzen 7 12GB RAM 1TB HD 15,6" Windows 10', 3999.99, 4.5, 100, 'produtos/notebook.jpg', 'Notebook Acer Aspire 3 A315-42G-R2LK AMD Ryzen 7 12GB RAM 1TB HD 15,6" Windows 10')
         """
     )
 
     cursor.execute(
         """
         INSERT INTO produtos (nome, preco, avaliacao, total_vendidos, imagem, descricao)
-        VALUES ('Smartwatch Xiaomi Mi Band 4 Preto', 199.99, 4.5, 100, './produtos/smartwatch.jpg', 'Smartwatch Xiaomi Mi Band 4 Preto')
+        VALUES ('Smartwatch Xiaomi Mi Band 4 Preto', 199.99, 4.5, 100, 'produtos/smartwatch.jpg', 'Smartwatch Xiaomi Mi Band 4 Preto')
         """
     )
 
