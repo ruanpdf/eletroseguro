@@ -9,7 +9,7 @@ iniciar_banco()
 inserir_produtos()
 
 
-@app.route("/")
+@app.route("/inicio")
 def pagina_inicial():
     return render_template("inicio.html")
 
@@ -31,7 +31,7 @@ def pagina_detalhar_produto(id):
     return render_template("detalhe_produto.html", produto=produto)
 
 
-@app.route("/contato")
+@app.route("/")
 def pagina_contato():
     return render_template("contato.html")
 
@@ -44,7 +44,7 @@ def pagina_login():
         cliente = verificar_cliente(email, senha)
 
         if cliente:
-            return redirect("/produtos")
+            return redirect("/inicio")
         return render_template("login.html", erro="Usuário ou senha incorretos")
     else:
         return render_template("login.html")

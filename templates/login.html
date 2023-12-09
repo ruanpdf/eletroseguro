@@ -29,6 +29,7 @@
         <input type="password" class="form-control" id="senha" name="senha" required>
       </div>
       <button type="submit" class="btn btn-success">Entrar</button>
+      <a href="{{ url_for('cadastrar') }}" class="btn btn-link bg-white bg-opacity-25">Cadastrar</a>
     </form>
     {% if erro %}
       <div class="alert alert-danger mt-3" role="alert">
